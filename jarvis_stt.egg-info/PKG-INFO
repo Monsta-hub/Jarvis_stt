@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: jarvis_stt
+Version: 0.1
+Summary:  A simple speech-to-text application for Jarvis
+Author: Monsta
+Author-email: freeai007123@gmail.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary

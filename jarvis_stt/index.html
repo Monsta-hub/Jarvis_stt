@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jarvis STT</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    #startButton { padding: 10px 20px; font-size: 16px; }
+    #output { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <button id="startButton">Start Listening</button>
+  <div id="output">Waiting...</div>
+
+  <script>
+    const startBtn = document.getElementById("startButton");
+    const output = document.getElementById("output");
+
+    let isListening = false;
+    const fakeMessages = ["Hello", "How are you?", "Jarvis, open the pod bay doors", "Thank you"];
+
+    startBtn.addEventListener("click", () => {
+      if (!isListening) {
+        startBtn.textContent = "Listening...";
+        output.textContent = "Listening...";
+        isListening = true;
+
+        // Simulate "speech recognition"
+        let idx = 0;
+        const interval = setInterval(() => {
+          if (idx >= fakeMessages.length) {
+            clearInterval(interval);
+            startBtn.textContent = "Start Listening";
+            isListening = false;
+            return;
+          }
+          output.textContent = fakeMessages[idx];
+          idx++;
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
